@@ -8,9 +8,9 @@ public class Main {
         List<Person> student = new ArrayList<Person>();
         student.add(new Person("Ivan", "Ivanov", 18 ));
         student.add(new Person("Sasha", "Fidulov", 19 ));
-        student.add(new Person("Stanislav", "Vinov", 22 ));
+        student.add(new Person("Stanislav", "Vinov", 2 ));
         student.add(new Person("Nikol", "Sumova", 20 ));
-        student.add(new Person("Valeria", "Ivanova", 25 ));
+        student.add(new Person("Valeria", "Ivanova", 5 ));
         System.out.println(student);
         Collections.sort(student, (o1, o2) ->{
             int length1 = o1.getSurname().split("-").length;
@@ -23,6 +23,7 @@ public class Main {
             }
             return o1.getAge() - o2.getAge();
         });
+        student.removeIf(person -> person.getAge()<18);
         System.out.println(student);
     }
 }
