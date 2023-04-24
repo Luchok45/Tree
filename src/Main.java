@@ -12,7 +12,17 @@ public class Main {
         student.add(new Person("Nikol", "Sumova", 20 ));
         student.add(new Person("Valeria", "Ivanova", 25 ));
         System.out.println(student);
-        Collections.sort(student, new Namecomporator());
+        Collections.sort(student, (o1, o2) ->{
+            int length1 = o1.getSurname().split("-").length;
+            int length2 = o2.getSurname().split("-").length;
+            if(length1>length2){
+                return 1;
+            }
+            if(length1<length2){
+                return -1;
+            }
+            return o1.getAge() - o2.getAge();
+        });
         System.out.println(student);
     }
 }
